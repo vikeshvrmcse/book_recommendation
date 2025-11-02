@@ -42,6 +42,10 @@ def get_similar_books(book_name):
     return data
 
 # --- Routes ---
+@app.route('/')
+def home():
+    return "Welcome, Tata By By!"
+
 @app.route('/BookRecommender', methods=["POST"])
 def book_recommender():
     data = request.get_json()
