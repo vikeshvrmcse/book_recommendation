@@ -2,6 +2,7 @@ import os
 import pickle
 import numpy as np
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 # --- Load datasets ---
 popular_df = pickle.load(open('./models/popular.pkl', 'rb'))
@@ -10,6 +11,7 @@ pt = pickle.load(open('./models/pt.pkl', 'rb'))
 similarity_score = pickle.load(open('./models/similarity_score.pkl', 'rb'))
 
 app = Flask(__name__)
+CORS(app)
 
 # --- Helper Functions ---
 def is_internet_connected():
